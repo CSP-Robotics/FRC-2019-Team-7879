@@ -24,8 +24,8 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
 
-  public static int frontLeftMotor = 1;
-  public static int frontRightMotor = 2;
+  public static int frontLeftMotor = 2;
+  public static int frontRightMotor = 0;
   public static int backLeftMotor = 3;
-  public static int backRightMotor = 4;
+  public static int backRightMotor = 1;
 }

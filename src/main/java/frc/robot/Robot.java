@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.cameraserver.CameraServer;
 import frc.robot.commands.driveTimed;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
@@ -42,6 +43,8 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Forward 5 secs", new driveTimed(5));
     m_chooser.addOption("Forward 10 secs", new driveTimed(10));
     SmartDashboard.putData("Auto mode", m_chooser);
+
+    CameraServer.getInstance().startAutomaticCapture();
   }
 
   /**

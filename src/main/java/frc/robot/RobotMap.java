@@ -24,8 +24,19 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
 
+  //motors
   public static int frontLeftMotor = 2;
   public static int frontRightMotor = 0;
   public static int backLeftMotor = 3;
   public static int backRightMotor = 1;
+  public static int liftMotor1 = 8;
+  public static int liftMotor2 = 9;
+
+  //limit switches
+  public static int limit1 = 0;
+  public static int limit2 = 1;
+  public static int limit3 = 2;
+
+  //number between 0 and 2 to indicate which limit switch the lift is currently on
+  public int currentLiftHeight;
 }

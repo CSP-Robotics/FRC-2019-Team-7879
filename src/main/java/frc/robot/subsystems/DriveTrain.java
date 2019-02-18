@@ -32,10 +32,6 @@ public class DriveTrain extends Subsystem {
 
   public DriveTrain() {
     addChild("Drive", m_drive);
-    //addChild("Front Left", m_frontLeft);
-    //addChild("Front Right", m_frontRight);
-    //addChild("Back Left", m_backLeft);
-    //addChild("Back Right", m_backRight);
   }
 
   @Override

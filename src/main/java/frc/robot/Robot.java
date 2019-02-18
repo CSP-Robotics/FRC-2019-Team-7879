@@ -28,6 +28,7 @@ public class Robot extends TimedRobot {
 
   public static DriveTrain driveTrain = new DriveTrain();
   public static Lift lift = new Lift();
+  public static Grabber grabber = new Grabber();
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();

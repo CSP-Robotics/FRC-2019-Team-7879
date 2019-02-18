@@ -7,27 +7,19 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class setLift extends Command {
+public class buttonGrabber extends Command {
 
-  //private final int m_limit;
-  private final boolean m_direction;
+  Joystick joy = Robot.m_oi.getJoystick();
 
-  /*
-  public setLift(int limit) {
+  public buttonGrabber() {
     // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-    requires(Robot.lift);
-    m_limit = limit;
+    requires(Robot.grabber);
   }
-  */
 
-  public setLift(boolean direction) {
-    requires(Robot.lift);
-    m_direction = direction;
-  }
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
@@ -36,24 +28,23 @@ public class setLift extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(m_direction){
-      Robot.lift.goUp();
-    } else {
-      Robot.lift.goDown();
+    if(joy.getRawButton(1)) {
+      Robot.grabber.goForward();
+    }else if(joy.getRawButton(2)){
+      Robot.grabber.goBack();
     }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    //return Robot.lift.isSwitchSet(m_limit);
-    return 
+    return false;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    
+    Robot.grabber.stop();
   }
 
   // Called when another command which requires one or more of the same

@@ -7,6 +7,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
@@ -14,6 +15,8 @@ import frc.robot.Robot;
  * An example command.  You can replace me with your own command.
  */
 public class buttonLift extends Command {
+
+  Joystick joy = Robot.m_oi.getJoystick();
 
   public buttonLift() {
     // Use requires() here to declare subsystem dependencies
@@ -28,7 +31,11 @@ public class buttonLift extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if()
+    if(joy.getRawButton(5)) {
+      Robot.lift.goUp();
+    }else if(joy.getRawButton(3)){
+      Robot.lift.goDown();
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()

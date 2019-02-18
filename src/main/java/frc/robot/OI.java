@@ -45,12 +45,10 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
 
   public Joystick m_joystick = new Joystick(0);
-  public JoystickButton liftUp = new JoystickButton(m_joystick, 5);
-  public JoystickButton liftDown = new JoystickButton(m_joystick, 3);
 
   public OI() {
-    liftUp.whileHeld(new setLift(limit));
-    }
+    
+  }
 
   public Joystick getJoystick() {
     return m_joystick;

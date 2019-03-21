@@ -7,10 +7,14 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class arcadeDriveWithJoystick extends Command {
+
+  Joystick joy = Robot.m_oi.getJoystick();
+  boolean direction = true;
 
   public arcadeDriveWithJoystick() {
     // Use requires() here to declare subsystem dependencies
@@ -25,7 +29,13 @@ public class arcadeDriveWithJoystick extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.driveTrain.drive(Robot.m_oi.getJoystick());
+    if(joy.getRawButtonPressed(11)) {
+      direction = true;
+      Robot.driveTrain.drive(joy, direction);
+    }
+    if(joy.getRawButtonPressed(12))
+    direction = false;
+    Robot.driveTrain.drive(joy, direction);
   }
 
   // Make this return true when this Command no longer needs to run execute()

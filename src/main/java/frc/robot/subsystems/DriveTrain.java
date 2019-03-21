@@ -40,8 +40,14 @@ public class DriveTrain extends Subsystem {
     setDefaultCommand(new arcadeDriveWithJoystick());
   }
 
-  public void drive(Joystick joy) {
-    m_drive.arcadeDrive(joy.getY(), joy.getZ());
+  public void drive(Joystick joy, boolean direction) {
+    if(direction == true) {
+      m_drive.arcadeDrive(joy.getY(), joy.getZ());
+    }
+    if(direction == false) {
+      m_drive.arcadeDrive(-joy.getY(), -joy.getZ());
+    }
+    
   }
 
   public void drive(double speed, double rotation) {

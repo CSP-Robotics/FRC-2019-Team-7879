@@ -28,10 +28,14 @@ public class buttonGrabber extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if(joy.getRawButton(1)) {
-      Robot.grabber.goForward();
-    }else if(joy.getRawButton(2)){
-      Robot.grabber.goBack();
+    if(joy.getRawButtonPressed(1)) {
+      Robot.grabber.setPosition(0.1);
+    }
+    else if(joy.getRawButtonPressed(2)){
+      Robot.grabber.setPosition(0.4);
+    }
+    else if(joy.getRawButtonPressed(4)){
+      Robot.grabber.setPosition(0.85);
     }
   }
 

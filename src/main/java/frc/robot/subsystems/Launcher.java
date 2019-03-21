@@ -7,34 +7,36 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-import frc.robot.commands.buttonLift;
+import frc.robot.commands.buttonLauncher;
 
 /**
  * Add your docs here.
  */
-public class Lift extends Subsystem {
+public class Launcher extends Subsystem {
   // Put methods for controlling this subsystem
-  // here. Call these from Commands.
-  private final Spark m_liftMotor1 = new Spark(RobotMap.liftMotor1);
+  // here. Call these from Commands. 
+
+  private final DoubleSolenoid solenoid = new DoubleSolenoid(RobotMap.solenoid1, RobotMap.solenoid2);
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    setDefaultCommand(new buttonLift());
+    setDefaultCommand(new buttonLauncher());
   }
 
-  public void goUp() {
-    m_liftMotor1.set(0.5);
+  public void shoot() {
+    solenoid.set(DoubleSolenoid.Value.kForward);
   }
 
-  public void goDown() {
-    m_liftMotor1.set(-0.5);
+  public void release() {
+    solenoid.set(DoubleSolenoid.Value.kReverse);
   }
 
-  public void stop() {
-    m_liftMotor1.set(0);
+  public void shootBall() {
+    shoot();
+    release();
   }
 }

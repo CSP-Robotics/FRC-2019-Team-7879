@@ -10,7 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.buttonGrabber;
-import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.Servo;
 
 /**
  * Add your docs here.
@@ -18,7 +18,8 @@ import edu.wpi.first.wpilibj.Spark;
 public class Grabber extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  private final Spark m_grabberWheels = new Spark(RobotMap.grabberWheels);
+  private final Servo m_top = new Servo(RobotMap.topGrabber);
+  private final Servo m_bottom = new Servo(RobotMap.topGrabber);
 
   @Override
   public void initDefaultCommand() {
@@ -26,15 +27,13 @@ public class Grabber extends Subsystem {
     setDefaultCommand(new buttonGrabber());
   }
 
-  public void goForward() {
-    m_grabberWheels.set(0.5);
-  }
-
-  public void goBack() {
-    m_grabberWheels.set(-0.5);
+  public void setPosition(double speed) {
+    m_top.set(speed);
+    m_bottom.set(speed);
   }
 
   public void stop() {
-    m_grabberWheels.set(0);
+    m_top.set(1);
+    m_bottom.set(1);
   }
 }

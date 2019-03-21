@@ -26,9 +26,13 @@ public class RobotMap {
 
   //motors
   public static int frontLeftMotor = 2;
-  public static int frontRightMotor = 0;
+  public static int frontRightMotor = 0;     
   public static int backLeftMotor = 3;
   public static int backRightMotor = 1;
-  public static int liftMotor1 = 8;
-  public static int grabberWheels = 9;
+  
+  public static int bottomGrabber = 8;
+  public static int topGrabber = 9;
+
+  public static int solenoid1 = 1;
+  public static int solenoid2 = 2;
 }
